@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>WEB-115 Final Project</title>
+    <script src="Venerio-Santamaria_projectJS.js"></script>
+</head>
+<body>
+    <header style="background-color: #4CAF50; color: white; padding: 20px; text-align: center;">
+        <h1>Build Your Meal Plan</h1>
+        <h2>Jose Venerio-Santamaria - WEB115 - 0006</h2>
+    </header>
+
+    <!-- Getting the users personal information -->
+    <form id="mealPlanForm">
+        <fieldset>
+            <legend>Meal Plan Information</legend>
+
+            <label for="username">Full Name:</label>
+            <input type="text" name="username" id="username" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required><br><br>
+
+            <label for="goal">Goal For The Week</label>
+            <input type="text" name="goal" id="goal" required><br><br>
+        </fieldset>
+
+    <!--Meal plan for the week-->
+        <fieldset>
+            <legend>Meal Plan: Monday - Sunday</legend>
+            <div id="meal-inputs">
+                <p>Enter information for 5 meals(Breakfast, Snack 1, Lunch, Snack 2, & Dinner):</p>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Breakfast</th>
+                            <th>Snack 1</th>
+                            <th>Lunch</th>
+                            <th>Snack 2</th>
+                            <th>Dinner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <script>
+                            const days = ["Monday", "Tuesday", "wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+                            for (let i = 0; i <days.length; i++) {
+                                document.write(`<tr>
+                                    <td>${days[i]}</td>
+                                    <td><input type="text" name="${days[i]}_Breakfast"></td>
+                                    <td><input type="text" name="${days[i]}_Snack1"></td>
+                                    <td><input type="text" name="${days[i]}_Lunch"></td>
+                                    <td><input type="text" name="${days[i]}_Snack2"></td>
+                                    <td><input type="text" name="${days[i]}_Dinner"></td>
+                                </tr>`)
+                            }
+                        </script>
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+        <br>
+        <button type="button" onclick="generateMealPlan()">Generate Meal Plan</button>
+        <button type="reset">Clear Planner</button>
+        <button type="button" onclick="window.print()">Print Planner</button>
+        <button type="button" onclick="downloadMealPlan()">Download Planner</button>
+    </form>
+    
+</body>
+</html>
